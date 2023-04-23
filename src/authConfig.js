@@ -6,7 +6,7 @@ export const b2cPolicies = {
   },
   authorities: {
       signUpSignIn: {
-          authority: "https://inkarted.b2clogin.com/inkarted.onmicrosoft.com/b2c_1_signup_signin",
+          authority: "https://droopel.b2clogin.com/droopel.onmicrosoft.com/B2C_1_signup",
       },
       forgotPassword: {
           authority: "https://inkarted.b2clogin.com/inkarted.onmicrosoft.com/b2c_1_reset",
@@ -15,14 +15,14 @@ export const b2cPolicies = {
           authority: "https://inkarted.b2clogin.com/inkarted.onmicrosoft.com/b2c_1_edit_profile"
       }
   },
-  authorityDomain: "https://inkarted.b2clogin.com"
+  authorityDomain: "https://droopel.b2clogin.com"
 }
 
 export const msalConfig = {
   auth: {
-    clientId: "9b9486f4-16ba-4ca8-a5c4-c63ac030e978",
-    authority: "https://login.microsoftonline.com/inkarted.onmicrosoft.com", // This is a URL (e.g. https://login.microsoftonline.com/{your tenant ID})
-    redirectUri: "http://192.168.70.116:3000/",
+    clientId: "cc9efdfa-a392-4f1f-883d-83f6f13acb08",
+    authority: "https://droopel.microsoftonline.com/Droopel.onmicrosoft.com", // This is a URL (e.g. https://login.microsoftonline.com/{your tenant ID})
+    redirectUri: "http://localhost:3000/",
     knownAuthorities : [b2cPolicies.authorityDomain],
     postLogoutRedirectUri: "/", // Indicates the page to navigate after logout.
     navigateToLoginRequestUrl: false, // If "true", wil

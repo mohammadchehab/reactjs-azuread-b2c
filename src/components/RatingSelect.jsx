@@ -1,13 +1,23 @@
+import React from "react";
 import { useState } from "react";
 
-function RatingSelect() {
-  const [selected, setSelected] = useState(10);
-  const handleChange =  (e) => {
+export default class RatingSelect extends React.Component {
+
+  constructor(props){
+    super(props);
+    this.state = {
+      selected : 10
+    };
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange (e) {
     let value = e.currentTarget.value;
-    setSelected(+value);
+    this.setState({selected:+value});
+    this.props.select(this.state.selected);
   };
 
-  const makeSelectors = function () {
+  makeSelectors() {
     let i = 0;
     let selectors = [];
     for (i = 0; i <= 10; i++) {
@@ -18,8 +28,8 @@ function RatingSelect() {
             id={`num${i}`}
             name="rating"
             value={i}
-            onChange={handleChange}
-            checked={selected === i}
+            onChange={this.handleChange}
+            checked={this.state.selected === i}
           />
           <label htmlFor={`num${i}`}>{i}</label>
         </li>
@@ -29,7 +39,7 @@ function RatingSelect() {
     return selectors;
   };
 
-  return <ul className="rating">{makeSelectors()}</ul>;
+  render() {
+    return <ul className="rating">{this.makeSelectors()}</ul>;
+  }
 }
-
-export default RatingSelect;
